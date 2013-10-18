@@ -12,34 +12,41 @@
   <script src='/js/app/keys.js'></script>
 </head>
 <body>
-  <div class='row'>
-    <div class='small-12 columns'>
-      <h2>Concert Tickets</h2>
+  <section id='sectionControls'>
+    <div class='row'>
+      <div class='small-12 columns'>
+        <h2>Concert Tickets</h2>
+      </div>
     </div>
-  </div>
-  <div class='row'>
-    <div class='small-2 columns'>
-      <select id='sections' name='Select Section'>
-        <option disabled='disabled' selected='selected'>Select Section</option>
-        <option value='vip'>VIP</option>
-        <option value='ga'>General Admission</option>
-      </select>
+    <div class='row'>
+      <div class='small-2 columns'>
+        <select id='sections' name='Select Section'>
+          <option disabled='disabled' selected='selected'>Select Section</option>
+          <option value='vip'>VIP</option>
+          <option value='ga'>General Admission</option>
+        </select>
+      </div>
+      <div class='small-2 columns'>
+        <input id='seatCount' placeholder='# of Seats' type='text'>
+      </div>
+      <div class='small-2 columns'>
+        <input id='seatCost' placeholder='Cost per Seat' type='text'>
+      </div>
+      <div class='small-6 columns'>
+        <input class='button small radius' id='seatCreate' type='button' value='Create Seats'>
+      </div>
     </div>
-    <div class='small-2 columns'>
-      <input id='seatCount' placeholder='# of Seats' type='text'>
-    </div>
-    <div class='small-2 columns'>
-      <input id='seatCost' placeholder='Cost per Seat' type='text'>
-    </div>
-    <div class='small-6 columns'>
-      <input class='button small radius' id='seatCreate' type='button' value='Create Seats'>
-    </div>
-  </div>
+  </section>
   <div class='row'>
     <div class='small-12 columns'>
       <div id='stage'>
         <h4>Stage</h4>
       </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='small-2 small-offset-10 columns'>
+      <input id='seatName' placeholder='Name' type='text'>
     </div>
   </div>
   <div class='row'>

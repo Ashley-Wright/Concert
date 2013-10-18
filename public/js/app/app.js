@@ -21,9 +21,17 @@ function clickSeatCreate() {
     $seat.text(i);
     $('#' + section).append($seat);
   }
+  isSecondSection();
 }
 
 // -------------------------------------------------------------------- //
+
+function isSecondSection(){
+  if(($('#vip').children().length > 0) && ($('#ga').children().length > 0)){
+    $('#sectionControls').remove();
+  }
+}
+
 
 function getValue(selector, fn){
   var value = $(selector).val();
