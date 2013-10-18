@@ -27,3 +27,20 @@ html, body{
   margin: auto;
   // background-color: blue;
 }
+
+.seat {
+  height: 20px;
+  width: 20px;
+  border: 1px solid black;
+  float: left;
+  color: white;
+  text-align: center;
+}
+
+#vip .seat {
+  background-color: red;
+}
+
+#ga .seat {
+  background-color: blue;
+}

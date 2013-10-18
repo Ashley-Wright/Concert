@@ -6,12 +6,22 @@ function initialize(fn, flag){
   if(!canRun(flag)) {return;}
 
   $(document).foundation();
+  $('#seatCreate').click(clickSeatCreate);
 }
 
 // -------------------------------------------------------------------- //
 
-
-
+function clickSeatCreate() {
+  var section = $('#sections').val();
+  var count = $('#seatCount').val();
+  var pricePer = $('#seatCost').val();
+  for(var i = 1; i <= count; i++) {
+    var $seat = $('<div>');
+    $seat.addClass('seat');
+    $seat.text(i);
+    $('#' + section).append($seat);
+  }
+}
 
 // -------------------------------------------------------------------- //
 
@@ -40,8 +50,6 @@ function formatCurrency(number){
 }
 
 // -------------------------------------------------------------------- //
-// -------------------------------------------------------------------- //
-// -------------------------------------------------------------------- //
 
 function canRun(flag){
   var isQunit = $('#qunit').length > 0;
@@ -50,6 +58,4 @@ function canRun(flag){
   return value;
 }
 
-// -------------------------------------------------------------------- //
-// -------------------------------------------------------------------- //
 // -------------------------------------------------------------------- //

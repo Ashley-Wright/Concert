@@ -10,13 +10,13 @@ function teardownTest(){
 }
 
 test('Create seat test', function(){
-  expect(1);
+  expect(2);
 
   $('#sections').val('vip');
-  $('#seatNumber').val('35');
+  $('#seatCount').val('35');
   $('#seatCost').val('100');
   $('#seatCreate').trigger('click');
 
   deepEqual($('#vip .seat').length, 35, 'Should equal 35');
-
+  deepEqual($('#vip .seat:nth-child(5)').text(), '5', 'Should have text 5');
 });
