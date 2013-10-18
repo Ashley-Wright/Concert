@@ -7,9 +7,17 @@ function initialize(fn, flag){
 
   $(document).foundation();
   $('#seatCreate').click(clickSeatCreate);
+  $('#vip').on('dblclick', '.seat', clickSeat);
 }
 
 // -------------------------------------------------------------------- //
+
+function clickSeat() {
+  var $seat = $(this);
+  $seat.addClass('reserved');
+  $seat.css('background-color', 'rgb(128, 0, 128)');
+
+}
 
 function clickSeatCreate() {
   var section = $('#sections').val();
@@ -18,7 +26,7 @@ function clickSeatCreate() {
   for(var i = 1; i <= count; i++) {
     var $seat = $('<div>');
     $seat.addClass('seat');
-    $seat.text(i);
+    $seat.text(section + i);
     $('#' + section).append($seat);
   }
   isSecondSection();

@@ -18,7 +18,7 @@ test('Create seat test', function(){
   $('#seatCreate').trigger('click');
 
   deepEqual($('#vip .seat').length, 35, 'Should equal 35');
-  deepEqual($('#vip .seat:nth-child(5)').text(), '5', 'Should have text 5');
+  deepEqual($('#vip .seat:nth-child(5)').text(), 'vip5', 'Should have text vip5');
 });
 
 test('Hide Section Controls', function(){
@@ -37,4 +37,24 @@ test('Hide Section Controls', function(){
   $('#seatCreate').trigger('click');
 
   deepEqual($('#sectionControls').length, 0, 'should be 0 rows');
+});
+
+test('Reserve Seat Test', function() {
+  expect(3);
+
+  $('#sections').val('vip');
+  $('#seatCount').val('35');
+  $('#seatCost').val('100');
+  $('#seatCreate').trigger('click');
+
+  $('#vip .seat:first-child').trigger('dblclick');
+
+  $('#seatName').val('Bobby');
+
+  $('#reserveButton').trigger('click');
+
+  deepEqual($('#vip .seat:first-child').css('background-color'), 'rgb(128, 0, 128)', 'Should have color purple');
+  ok($('#vip .seat:first-child').hasClass('reserved'), 'Should have class reserved');
+  deepEqual($('#vip .seat:first-child > p').text(), 'Bobby', 'Should have name Bobby');
+
 });
