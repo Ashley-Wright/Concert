@@ -1,1 +1,29 @@
 
+html, body{
+  width: 100%;
+}
+
+#stage
+{
+  width: 100%;
+  height: 60px;
+  background-color: tan;
+  text-align: center;
+  border: 2px solid grey;
+}
+
+#vip
+{
+  width: 500px;
+  height: 20px;
+  margin: auto;
+  // background-color: red;
+}
+
+#ga
+{
+  width: 700px;
+  height: 20px;
+  margin: auto;
+  // background-color: blue;
+}

@@ -15,7 +15,46 @@
 <body>
   <div id='qunit'></div>
   <div id='qunit-fixture'>
-    <!-- #map-canvas -->
+    <div class='row'>
+      <div class='small-12 columns'>
+        <h2>Concert Tickets</h2>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='small-2 columns'>
+        <select id='sections' name='Select Section'>
+          <option disabled='disabled' selected='selected'>Select Section</option>
+          <option value='vip'>VIP</option>
+          <option value='ga'>General Admission</option>
+        </select>
+      </div>
+      <div class='small-2 columns'>
+        <input id='seatNumber' placeholder='# of Seats' type='text'>
+      </div>
+      <div class='small-2 columns'>
+        <input id='seatCost' placeholder='Cost per Seat' type='text'>
+      </div>
+      <div class='small-6 columns'>
+        <input class='button small radius' id='seatCreate' type='button' value='Create Seats'>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='small-12 columns'>
+        <div id='stage'>
+          <h4>Stage</h4>
+        </div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='small-12 columns'>
+        <div id='vip'></div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='small-12 columns'>
+        <div id='ga'></div>
+      </div>
+    </div>
   </div>
   <script src='/js/vendor/jquery-1.10.2.js'></script>
   <script src='/js/vendor/foundation.min.js'></script>

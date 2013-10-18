@@ -1,1 +1,26 @@
 
+.row
+  .small-12.columns
+    %h2 Concert Tickets
+.row
+  .small-2.columns
+    %select#sections{name:'Select Section'}
+      %option{selected:'selected', disabled:'disabled'} Select Section
+      %option{value:'vip'} VIP
+      %option{value:'ga'} General Admission
+  .small-2.columns
+    %input#seatNumber{type:'text', placeholder:'# of Seats'}
+  .small-2.columns
+    %input#seatCost{type:'text', placeholder:'Cost per Seat'}
+  .small-6.columns
+    %input#seatCreate.button.small.radius{type:'button', value:'Create Seats'}
+.row
+  .small-12.columns
+    #stage
+      %h4 Stage
+.row
+  .small-12.columns
+    #vip
+.row
+  .small-12.columns
+    #ga
