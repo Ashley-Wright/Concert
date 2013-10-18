@@ -7,7 +7,8 @@ function initialize(fn, flag){
 
   $(document).foundation();
   $('#seatCreate').click(clickSeatCreate);
-  $('#vip').on('dblclick', '.seat', clickSeat);
+  $('#vip, #ga').on('dblclick', '.seat', clickSeat);
+
 }
 
 // -------------------------------------------------------------------- //
@@ -16,7 +17,9 @@ function clickSeat() {
   var $seat = $(this);
   $seat.addClass('reserved');
   $seat.css('background-color', 'rgb(128, 0, 128)');
-
+  var name = $('#seatName').val();
+  var $p = $('<p>' + name + '</p>');
+  $seat.append($p);
 }
 
 function clickSeatCreate() {

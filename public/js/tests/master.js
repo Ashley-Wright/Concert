@@ -46,12 +46,9 @@ test('Reserve Seat Test', function() {
   $('#seatCount').val('35');
   $('#seatCost').val('100');
   $('#seatCreate').trigger('click');
-
-  $('#vip .seat:first-child').trigger('dblclick');
-
   $('#seatName').val('Bobby');
 
-  $('#reserveButton').trigger('click');
+  $('#vip .seat:first-child').trigger('dblclick');
 
   deepEqual($('#vip .seat:first-child').css('background-color'), 'rgb(128, 0, 128)', 'Should have color purple');
   ok($('#vip .seat:first-child').hasClass('reserved'), 'Should have class reserved');
