@@ -59,3 +59,24 @@ test('Reserve Seat Test', function() {
 
   deepEqual($('#vip .seat:first-child > p').text(), 'Bobby', 'Should have name Bobby');
 });
+
+test('Report test', function() {
+  expect(2);
+
+  $('#sections').val('vip');
+  $('#seatCount').val('35');
+  $('#seatCost').val('100');
+  $('#seatCreate').trigger('click');
+
+  $('#seatName').val('Bobby');
+  $('#vip .seat:first-child').trigger('dblclick');
+
+  $('#seatName').val('Sally');
+  $('#vip .seat:nth-child(2)').trigger('dblclick');
+
+  $('#seatName').val('Frank');
+  $('#vip .seat:last-child').trigger('dblclick');
+
+  deepEqual($('#vipPeople').text(), '3', 'should be 3 people');
+  deepEqual($('#vipTotal').text(), '300', 'should be 300');
+});

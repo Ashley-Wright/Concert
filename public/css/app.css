@@ -31,3 +31,8 @@ html, body {
 
 #ga .seat {
   background-color: blue; }
+
+#report th {
+  text-align: right; }
+#report td {
+  width: 8em; }

@@ -1,5 +1,7 @@
 'use strict';
 
+var pricePer = {};
+
 $(document).ready(initialize);
 
 function initialize(fn, flag){
@@ -22,12 +24,13 @@ function clickSeat() {
     var $p = $('<p>' + name + '</p>');
     $seat.append($p);
   }
+  htmlUpdateReport();
 }
 
 function clickSeatCreate() {
   var section = $('#sections').val();
   var count = $('#seatCount').val();
-  var pricePer = $('#seatCost').val();
+  pricePer[section] = $('#seatCost').val();
   for(var i = 1; i <= count; i++) {
     var $seat = $('<div>');
     $seat.addClass('seat');
@@ -45,6 +48,11 @@ function isSecondSection(){
   }
 }
 
+function htmlUpdateReport(){
+  var vipPeople = $('#vip .reserved').length;
+  $('#vipPeople').text(vipPeople);
+  $('#vipTotal').text(parseFloat(pricePer.vip) * vipPeople);
+}
 
 function getValue(selector, fn){
   var value = $(selector).val();
