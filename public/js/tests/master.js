@@ -40,18 +40,22 @@ test('Hide Section Controls', function(){
 });
 
 test('Reserve Seat Test', function() {
-  expect(3);
+  expect(4);
 
   $('#sections').val('vip');
   $('#seatCount').val('35');
   $('#seatCost').val('100');
   $('#seatCreate').trigger('click');
-  $('#seatName').val('Bobby');
 
+  $('#seatName').val('Bobby');
   $('#vip .seat:first-child').trigger('dblclick');
 
   deepEqual($('#vip .seat:first-child').css('background-color'), 'rgb(128, 0, 128)', 'Should have color purple');
   ok($('#vip .seat:first-child').hasClass('reserved'), 'Should have class reserved');
   deepEqual($('#vip .seat:first-child > p').text(), 'Bobby', 'Should have name Bobby');
 
+  $('#seatName').val('Sally');
+  $('#vip .seat:first-child').trigger('dblclick');
+
+  deepEqual($('#vip .seat:first-child > p').text(), 'Bobby', 'Should have name Bobby');
 });
