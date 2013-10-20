@@ -19,12 +19,14 @@ html, body {
   margin: auto; }
 
 .seat {
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   border: 1px solid black;
   float: left;
   color: white;
   text-align: center; }
+  .seat p {
+    margin: 0; }
 
 #vip .seat {
   background-color: red; }
@@ -36,3 +38,8 @@ html, body {
   text-align: right; }
 #report td {
   width: 8em; }
+
+ul {
+  list-style: none; }
+  ul li span {
+    margin-left: 15px; }

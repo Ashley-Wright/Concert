@@ -27,7 +27,7 @@ function clickSeat() {
     var $p = $('<p>' + name + '</p>');
     $seat.append($p);
   }
-  htmlUpdateReport();
+  htmlUpdateSeating();
 }
 
 function clickSeatCreate() {
@@ -37,7 +37,9 @@ function clickSeatCreate() {
   for(var i = 1; i <= count; i++) {
     var $seat = $('<div>');
     $seat.addClass('seat');
-    $seat.text(section[0] + i);
+    var $p = $('<p>');
+    $p.text(section[0] + i);
+    $seat.append($p);
     $('#' + section).append($seat);
   }
   isSecondSection();
@@ -75,6 +77,37 @@ function htmlUpdateReport(){
   var grandTotal = vipTotal + gaTotal;
   $('#totalPeople').text(totalPeople);
   $('#grandTotal').text(grandTotal.toFixed(2));
+}
+
+function htmlUpdateSeating(){
+  var $vipReserved = $('#vip .reserved');
+  $('#vipSeating').empty();
+  for(var i = 0; i < $vipReserved.length; i++){
+    var $vipli = $('<li>');
+    var $vipSeat = $('<span>');
+    var vipSeat = $($vipReserved[i]).children('p:nth-child(1)').text();
+    $vipSeat.text(vipSeat);
+    var $vipName = $('<span>');
+    var vipName = $($vipReserved[i]).children('p:nth-child(2)').text();
+    $vipName.text(vipName);
+    $vipli.append($vipSeat, $vipName);
+    $('#vipSeating').append($vipli);
+  }
+
+  var $gaReserved = $('#ga .reserved');
+  $('#gaSeating').empty();
+  for(i = 0; i < $gaReserved.length; i++){
+    var $gali = $('<li>');
+    var $gaSeat = $('<span>');
+    var gaSeat = $($gaReserved[i]).children('p:nth-child(1)').text();
+    $gaSeat.text(gaSeat);
+    var $gaName = $('<span>');
+    var gaName = $($gaReserved[i]).children('p:nth-child(2)').text();
+    $gaName.text(gaName);
+    $gali.append($gaSeat, $gaName);
+    $('#gaSeating').append($gali);
+  }
+  htmlUpdateReport();
 }
 
 function getValue(selector, fn){

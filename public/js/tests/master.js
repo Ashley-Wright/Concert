@@ -52,12 +52,12 @@ test('Reserve Seat Test', function() {
 
   deepEqual($('#vip .seat:first-child').css('background-color'), 'rgb(128, 0, 128)', 'Should have color purple');
   ok($('#vip .seat:first-child').hasClass('reserved'), 'Should have class reserved');
-  deepEqual($('#vip .seat:first-child > p').text(), 'Bobby', 'Should have name Bobby');
+  deepEqual($('#vip .seat:first-child > p:nth-child(2)').text(), 'Bobby', 'Should have name Bobby');
 
   $('#seatName').val('Sally');
   $('#vip .seat:first-child').trigger('dblclick');
 
-  deepEqual($('#vip .seat:first-child > p').text(), 'Bobby', 'Should have name Bobby');
+  deepEqual($('#vip .seat:first-child > p:nth-child(2)').text(), 'Bobby', 'Should have name Bobby');
 });
 
 test('Report test', function() {
@@ -98,4 +98,34 @@ test('Report test', function() {
   deepEqual($('#gaTotal').text(), '300.00', 'should be 300.00 ga total');
   deepEqual($('#totalPeople').text(), '6', 'should be 6 total people');
   deepEqual($('#grandTotal').text(), '600.00', 'should be 600.00 grand total');
+});
+
+test('Seating Chart Test', function() {
+  expect(2);
+
+  $('#sections').val('vip');
+  $('#seatCount').val('35');
+  $('#seatCost').val('100');
+  $('#seatCreate').trigger('click');
+
+  $('#seatName').val('Bobby');
+  $('#vip .seat:first-child').trigger('dblclick');
+
+  $('#seatName').val('Sally');
+  $('#vip .seat:last-child').trigger('dblclick');
+
+  deepEqual($('#vipSeating li').length, 2, 'should have 2 list items');
+
+  $('#sections').val('ga');
+  $('#seatCount').val('35');
+  $('#seatCost').val('100');
+  $('#seatCreate').trigger('click');
+
+  $('#seatName').val('Bobby');
+  $('#ga .seat:first-child').trigger('dblclick');
+
+  $('#seatName').val('Sally');
+  $('#ga .seat:last-child').trigger('dblclick');
+
+  deepEqual($('#gaSeating li').length, 2, 'should have 2 list items');
 });
