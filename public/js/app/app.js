@@ -28,6 +28,8 @@ function clickSeat() {
     $seat.append($p);
   }
   htmlUpdateSeating();
+  htmlUpdateReport();
+  $('#seatName').focus();
 }
 
 function clickSeatCreate() {
@@ -107,7 +109,6 @@ function htmlUpdateSeating(){
     $gali.append($gaSeat, $gaName);
     $('#gaSeating').append($gali);
   }
-  htmlUpdateReport();
 }
 
 function getValue(selector, fn){
