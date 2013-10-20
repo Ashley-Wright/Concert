@@ -21,6 +21,9 @@ function clickSeat() {
     $seat.addClass('reserved');
     $seat.css('background-color', 'rgb(128, 0, 128)');
     var name = $('#seatName').val();
+    if(name == '') {
+      name = 'Reserved';
+    }
     var $p = $('<p>' + name + '</p>');
     $seat.append($p);
   }
@@ -34,10 +37,11 @@ function clickSeatCreate() {
   for(var i = 1; i <= count; i++) {
     var $seat = $('<div>');
     $seat.addClass('seat');
-    $seat.text(section + i);
+    $seat.text(section[0] + i);
     $('#' + section).append($seat);
   }
   isSecondSection();
+  $('#seatName').focus();
 }
 
 // -------------------------------------------------------------------- //
@@ -50,8 +54,27 @@ function isSecondSection(){
 
 function htmlUpdateReport(){
   var vipPeople = $('#vip .reserved').length;
-  $('#vipPeople').text(vipPeople);
-  $('#vipTotal').text(parseFloat(pricePer.vip) * vipPeople);
+  var vipTotal = parseFloat(pricePer.vip * vipPeople);
+  var gaPeople = $('#ga .reserved').length;
+  var gaTotal = parseFloat(pricePer.ga * gaPeople);
+  if(vipPeople){
+    $('#vipPeople').text(vipPeople);
+    $('#vipTotal').text(vipTotal.toFixed(2));
+  } else {
+    vipPeople = 0;
+    vipTotal = 0;
+  }
+  if(gaPeople){
+    $('#gaPeople').text(gaPeople);
+    $('#gaTotal').text(gaTotal.toFixed(2));
+  } else {
+    gaPeople = 0;
+    gaTotal = 0;
+  }
+  var totalPeople = vipPeople + gaPeople;
+  var grandTotal = vipTotal + gaTotal;
+  $('#totalPeople').text(totalPeople);
+  $('#grandTotal').text(grandTotal.toFixed(2));
 }
 
 function getValue(selector, fn){

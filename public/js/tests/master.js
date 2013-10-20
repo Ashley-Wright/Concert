@@ -18,7 +18,7 @@ test('Create seat test', function(){
   $('#seatCreate').trigger('click');
 
   deepEqual($('#vip .seat').length, 35, 'Should equal 35');
-  deepEqual($('#vip .seat:nth-child(5)').text(), 'vip5', 'Should have text vip5');
+  deepEqual($('#vip .seat:nth-child(5)').text(), 'v5', 'Should have text v5');
 });
 
 test('Hide Section Controls', function(){
@@ -61,7 +61,7 @@ test('Reserve Seat Test', function() {
 });
 
 test('Report test', function() {
-  expect(2);
+  expect(6);
 
   $('#sections').val('vip');
   $('#seatCount').val('35');
@@ -77,6 +77,25 @@ test('Report test', function() {
   $('#seatName').val('Frank');
   $('#vip .seat:last-child').trigger('dblclick');
 
-  deepEqual($('#vipPeople').text(), '3', 'should be 3 people');
-  deepEqual($('#vipTotal').text(), '300', 'should be 300');
+  deepEqual($('#vipPeople').text(), '3', 'should be 3 vip people');
+  deepEqual($('#vipTotal').text(), '300.00', 'should be 300.00 vip total');
+
+  $('#sections').val('ga');
+  $('#seatCount').val('35');
+  $('#seatCost').val('100');
+  $('#seatCreate').trigger('click');
+
+  $('#seatName').val('Bobby');
+  $('#ga .seat:first-child').trigger('dblclick');
+
+  $('#seatName').val('Sally');
+  $('#ga .seat:nth-child(2)').trigger('dblclick');
+
+  $('#seatName').val('Frank');
+  $('#ga .seat:last-child').trigger('dblclick');
+
+  deepEqual($('#gaPeople').text(), '3', 'should be 3 ga people');
+  deepEqual($('#gaTotal').text(), '300.00', 'should be 300.00 ga total');
+  deepEqual($('#totalPeople').text(), '6', 'should be 6 total people');
+  deepEqual($('#grandTotal').text(), '600.00', 'should be 600.00 grand total');
 });
