@@ -29,6 +29,7 @@ function clickSeat() {
   }
   htmlUpdateSeating();
   htmlUpdateReport();
+
   $('#seatName').val('');
   $('#seatName').focus();
 }
