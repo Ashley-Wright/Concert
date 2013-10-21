@@ -18,7 +18,7 @@ test('Create seat test', function(){
   $('#seatCreate').trigger('click');
 
   deepEqual($('#vip .seat').length, 35, 'Should equal 35');
-  deepEqual($('#vip .seat:nth-child(5)').text(), 'v5', 'Should have text v5');
+  deepEqual($('#vip .seat:nth-child(5)').text(), 'V-5', 'Should have text v5');
 });
 
 test('Hide Section Controls', function(){

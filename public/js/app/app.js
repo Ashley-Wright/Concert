@@ -28,6 +28,8 @@ function clickSeat() {
     $seat.append($p);
   }
   htmlUpdateSeating();
+  htmlUpdateReport();
+  $('#seatName').focus();
 }
 
 function clickSeatCreate() {
@@ -38,7 +40,7 @@ function clickSeatCreate() {
     var $seat = $('<div>');
     $seat.addClass('seat');
     var $p = $('<p>');
-    $p.text(section[0] + i);
+    $p.text(parseUpperCase(section[0]) + '-' + i);
     $seat.append($p);
     $('#' + section).append($seat);
   }
@@ -107,7 +109,6 @@ function htmlUpdateSeating(){
     $gali.append($gaSeat, $gaName);
     $('#gaSeating').append($gali);
   }
-  htmlUpdateReport();
 }
 
 function getValue(selector, fn){
